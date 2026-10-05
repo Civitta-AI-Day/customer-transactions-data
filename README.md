@@ -69,4 +69,23 @@ TICKET.md          the workshop ticket (CIV-5)
 
 ## The workshop task
 
-See `TICKET.md` and the Team Brief.
+The ticket is CIV-5 in Linear (a copy is in `TICKET.md`). Implement it with Claude Code and the
+team's toolkit plugin, which lives in its own repo, **ai-toolkit**, and works in any project.
+
+1. Clone both repos side by side and set this project up (`make setup && make seed`).
+2. Start Claude Code in this project: `cd customer-transactions-data && claude`
+3. Install the toolkit from your ai-toolkit clone:
+
+   ```
+   /plugin marketplace add ~/Desktop/code/ai-toolkit
+   /plugin install backend-toolkit@ai-toolkit
+   ```
+
+   Restart Claude Code, then check `/agents`, `/hooks` and `/mcp`. Once the plugin has its Linear server,
+   pick `linear` in `/mcp` and sign in to Linear (once; the browser opens).
+   When the plugin changes in your ai-toolkit clone, run `/reload-plugins`.
+4. If there is no CLAUDE.md yet, ask: "Onboard this project." Review what it writes.
+5. Work on your own branch: "Implement Linear ticket CIV-5."
+
+To compare with plain Claude Code: `/plugin disable backend-toolkit@ai-toolkit`
+(and `/plugin enable ...` to turn it back on).
