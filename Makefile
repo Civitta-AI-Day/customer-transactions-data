@@ -3,6 +3,7 @@ PY := .venv/bin/python
 .PHONY: setup seed run test lint format reset
 
 setup:            ## Create the virtualenv, install dependencies, create .env and the database
+	@python3 -c 'import sys; sys.exit(0 if sys.version_info >= (3, 11) else "Python 3.11 or newer is required (python3 is " + sys.version.split()[0] + "). Install it, e.g. brew install python@3.12")'
 	python3 -m venv .venv
 	$(PY) -m pip install -q --upgrade pip
 	$(PY) -m pip install -q -r requirements.txt
